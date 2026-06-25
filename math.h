@@ -2,6 +2,12 @@
 
 #include "vector2.h"
 #include "vector3.h"
+
+#include "state2.h"
+#include "state3.h"
+
+#include "integration_euler.h"
+
 #include <sstream>
 #include <iomanip>
 #include <string>

@@ -130,12 +130,14 @@
   <ItemGroup>
     <ClInclude Include="integration_euler.h" />
     <ClInclude Include="math.h" />
+    <ClInclude Include="state2.h" />
+    <ClInclude Include="state3.h" />
     <ClInclude Include="vector2.h" />
     <ClInclude Include="vector3.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="integrate_euler.cpp" />
     <ClCompile Include="vector3.cpp" />
-    <ClCompile Include="vector_math.h" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="vector2.cpp" />
   </ItemGroup>

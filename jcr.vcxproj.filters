@@ -19,22 +19,37 @@
     <Filter Include="Source Files\math">
       <UniqueIdentifier>{43101242-91f0-4d3f-8c29-3ad3ead9fae1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\integration">
+    <Filter Include="Header Files\math\vectors">
+      <UniqueIdentifier>{b5256988-f611-456a-a1c8-177be96f0075}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\math\state">
+      <UniqueIdentifier>{5e52cae0-f459-419e-8492-3389a0f79b37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\math\integration">
       <UniqueIdentifier>{3fb593cf-733f-451c-9af1-dc457c038cf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\math\vectors">
+      <UniqueIdentifier>{d090f1f1-59dc-4856-a9c8-b1ba0af48785}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="integration_euler.h">
+      <Filter>Header Files\math\integration</Filter>
+    </ClInclude>
     <ClInclude Include="vector2.h">
-      <Filter>Header Files\math</Filter>
+      <Filter>Header Files\math\vectors</Filter>
     </ClInclude>
     <ClInclude Include="vector3.h">
-      <Filter>Header Files\math</Filter>
+      <Filter>Header Files\math\vectors</Filter>
     </ClInclude>
-    <ClInclude Include="integration_euler.h">
-      <Filter>Header Files\integration</Filter>
+    <ClInclude Include="state2.h">
+      <Filter>Header Files\math\state</Filter>
+    </ClInclude>
+    <ClInclude Include="state3.h">
+      <Filter>Header Files\math\state</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -42,13 +57,13 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="vector2.cpp">
-      <Filter>Source Files\math</Filter>
-    </ClCompile>
-    <ClCompile Include="vector_math.h">
-      <Filter>Header Files\math</Filter>
+      <Filter>Source Files\math\vectors</Filter>
     </ClCompile>
     <ClCompile Include="vector3.cpp">
-      <Filter>Source Files\math</Filter>
+      <Filter>Source Files\math\vectors</Filter>
+    </ClCompile>
+    <ClCompile Include="integrate_euler.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
