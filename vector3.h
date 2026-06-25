@@ -51,6 +51,7 @@ namespace math {
 
 		constexpr Vector3(double x, double y, double z) noexcept : x(x), y(y), z(z) {}
 
+
 		// ADDITION
 
 
@@ -134,8 +135,7 @@ namespace math {
 
 
 		// Vector3 Cross Product
-		Vector3 cross(const Vector3& rhs) noexcept;
-
+		Vector3 cross(const Vector3& rhs) const noexcept;
 
 	};
 

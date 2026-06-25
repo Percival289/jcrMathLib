@@ -96,6 +96,7 @@ namespace math {
         return *this;
     }
 
+
     Vector2 Vector2::operator/(double rhs) const noexcept
     {
         Vector2 result = *this;
@@ -104,10 +105,42 @@ namespace math {
     }
 
 
-    double dot(const Vector2& lhs, const Vector2& rhs) noexcept
+    Vector2 Vector2::squared() const noexcept
     {
-        return lhs.x * rhs.x
-             + lhs.y * rhs.y;
+        return {
+            x * x,
+            y * y
+        };
+
+    }
+
+
+    Vector2 Vector2::sqrt() const noexcept
+    {
+        return {
+            std::sqrt(x),
+            std::sqrt(y)
+        };
+    }
+
+
+    double Vector2::magSquared() const noexcept
+    {
+        return x * x
+            + y * y;
+    }
+
+
+    double Vector2::mag() const noexcept
+    {
+        return std::sqrt(magSquared());
+    }
+
+
+    double Vector2::dot(const Vector2& rhs) const noexcept
+    {
+        return x * rhs.x
+            + y * rhs.y;
     }
 
 

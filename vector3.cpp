@@ -149,18 +149,18 @@ namespace math {
 
     double Vector3::dot(const Vector3& rhs) const noexcept
     {
-        return lhs.x * rhs.x
-             + lhs.y * rhs.y
-             + lhs.z * rhs.z;
+        return x * rhs.x
+             + y * rhs.y
+             + z * rhs.z;
     }
 
 
-    Vector3 cross(const Vector3& lhs, const Vector3& rhs) noexcept
+    Vector3 Vector3::cross(const Vector3& rhs) const noexcept
     {
         return {
-            lhs.y * rhs.z - lhs.z * rhs.y,
-            lhs.z * rhs.x - lhs.x * rhs.z,
-            lhs.x * rhs.y - lhs.y * rhs.x
+            y * rhs.z - z * rhs.y,
+            z * rhs.x - x * rhs.z,
+            x * rhs.y - y * rhs.x
         };
     }
 

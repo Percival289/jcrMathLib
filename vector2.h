@@ -48,6 +48,7 @@ namespace math {
 
         constexpr Vector2(double x, double y) noexcept : x(x), y(y) {}
 
+
         // ADDITION
 
 
@@ -105,11 +106,30 @@ namespace math {
         // Scalar division
         Vector2 operator/(double rhs) const noexcept;
 
+
+        // VECTOR OPERATIONS
+
+
+        // Vector2 ^ 2
+        Vector2 squared() const noexcept;
+
+
+        // Component-wise square root
+        Vector2 sqrt() const noexcept;
+
+
+        // Magnitude Squared
+        double magSquared() const noexcept;
+
+
+        // Magnitude
+        double mag() const noexcept;
+
+
+        // Vector2 Dot Product
+        double dot(const Vector2& rhs) const noexcept;
+
     };
-
-
-    // Vector2 Dot Product
-    double dot(const Vector2& lhs, const Vector2& rhs) noexcept;
 
 
     // Stream output operator, allows for vector to be written directly to streams

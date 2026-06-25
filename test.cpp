@@ -52,7 +52,7 @@ int main()
 
     std::cout << "\nDot Product\n";
     std::cout << "dot(a,b) = "
-        << dot(a,b)
+        << a.dot(b)
         << '\n';
 
 
@@ -101,13 +101,30 @@ int main()
 
     std::cout << "\nDot Product\n";
     std::cout << "dot(p,q) = "
-        << dot(p,q)
+        << p.dot(q)
         << '\n';
 
     std::cout << "\nCross Product\n";
     std::cout << "cross(p,q) = "
-        << cross(p, q)
+        << p.cross(q)
         << '\n';
+
+    std::cout << "\nMagnitude Squared\n";
+    std::cout << "p.magSquared = "
+        << p.magSquared()
+        << '\n';
+
+    std::cout << "\nMagnitude\n";
+    std::cout << "p.mag() = "
+        << p.mag()
+        << '\n';
+
+    std::cout << "\nSquared\n";
+    std::cout << "p.squared() = "
+        << p.squared()
+        << '\n';
+
+
 
     std::cout << "\n\nAll tests completed.\n";
 
