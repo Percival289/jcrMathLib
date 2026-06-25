@@ -8,7 +8,7 @@
 
 namespace math {
 
-
+    
     /*
     * 
     * Convert double to string:
@@ -16,6 +16,7 @@ namespace math {
     * Precision - difits after decimal place (or after conversion to scientific notation)
     * 
     */
+
     inline std::string to_string(double value, int precision = 3, bool sci_notation = false) {
 
         std::ostringstream ss;
