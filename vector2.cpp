@@ -3,23 +3,6 @@
 
 namespace math {
 
-
-    Vector2 Vector2::operator+(const Vector2& rhs) const noexcept
-    {
-        Vector2 result = *this;
-        result += rhs;
-        return result;
-    }
-
-
-    Vector2 Vector2::operator+(double rhs) const noexcept
-    {
-        Vector2 result = *this;
-        result += rhs;
-        return result;
-    }
-
-
     Vector2& Vector2::operator+=(const Vector2& rhs) noexcept
     {
         x += rhs.x;
@@ -38,12 +21,38 @@ namespace math {
     }
 
 
-    Vector2 operator+(double lhs, const Vector2& rhs) noexcept
+    Vector2 Vector2::operator+(const Vector2& rhs) const noexcept
     {
-        Vector2 result = rhs;
-        result += lhs;
+        Vector2 result = *this;
+        result += rhs;
         return result;
     }
+
+
+    Vector2 Vector2::operator+(double rhs) const noexcept
+    {
+        Vector2 result = *this;
+        result += rhs;
+        return result;
+    }
+
+
+    Vector2& Vector2::operator*=(double rhs) noexcept 
+    {
+        x *= rhs;
+        y *= rhs;
+
+        return *this;
+    }
+
+
+    Vector2& Vector2::operator*(double rhs) const noexcept
+    {
+        Vector2 result = *this;
+        result *= rhs;
+        return result;
+    }
+
 
     double dot(const Vector2& lhs, const Vector2& rhs) noexcept
     {
@@ -52,8 +61,7 @@ namespace math {
     }
 
 
-    std::ostream& operator<<(std::ostream& os,
-        const Vector2& vec)
+    std::ostream& operator<<(std::ostream& os, const Vector2& vec)
     {
         os << "[ "
             << vec.x

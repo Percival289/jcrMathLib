@@ -1,47 +1,60 @@
 #pragma once
 
-
 // Light version of iostream
 #include <iosfwd>
 
 namespace math {
 
     /*
-    * Vector2
+    * Vector2 (x,y):
     * 
-    * Represents a point or direction in 2-dimensional space.
+    *   Represents a point or direction in 2-dimensional space.
     * 
-    * Example:
+    *   Example:
     * 
-    *   Vector2 position{ 10.0, 20.0 };
+    *       Vector2 position{ 10.0, 20.0 };
     * 
-    * position.x = 10.0
-    * position.y = 20.0
+    *   position.x = 10.0
+    *   position.y = 20.0
     * 
     */
     struct Vector2 {
 
-        // Init to zero vectors by default
+        // Init to zero vector by default
 
-        // X component
+        // X Component
         double x{};
-
-
-        // Y component
+        // Y Component
         double y{};
 
+        /*
+        * Default Constructor
+        *
+        * Allows for creation of zero vector:
+        *
+        *	Vector2 v;  ->  v = { 0, 0 }
+        */
 
-        // Default constructor
-        // Allows for creation of a zero vector:
-        // Vector2 v;
         constexpr Vector2() noexcept = default;
 
 
-        // Component constructor
-        // Allows for creation of vector from components:
-        // Vector2 v( 1.0, 2.0 );
+        /*
+        * Component constructor
+        *
+        * Allows for creation of vector from components:
+        *
+        *	Vector2 v( 1.0, 2.0);
+        */
+
         constexpr Vector2(double x, double y) noexcept : x(x), y(y) {}
 
+
+        // Vector2 + Vector2 assignment
+        Vector2& operator+=(const Vector2& rhs) noexcept;
+
+
+        // Vector2 + scalar assignment
+        Vector2& operator+=(double rhs) noexcept;
 
         // Vector2 + Vector2
         Vector2 operator+(const Vector2& rhs) const noexcept;
@@ -50,22 +63,18 @@ namespace math {
         // Vector2 + scalar
         Vector2 operator+(double rhs) const noexcept;
 
-        
-        // Vector2 addition assignment
-        Vector2& operator+=(const Vector2& rhs) noexcept;
+
+        // Scalar multiplication assignment
+        Vector2& operator*=(double rhs) noexcept;
 
 
-        // Double addition assignment
-        Vector2& operator+=(double rhs) noexcept;
+        // Scalar multiplication
+        Vector2& operator*(double rhs) const noexcept;
 
     };
 
 
-    // scalar + Vector2: allows for constant to be on either side
-    Vector2 operator+(double lhs, const Vector2& rhs) noexcept;
-
-
-    // Vector2 dot product
+    // Vector2 Dot Product
     double dot(const Vector2& lhs, const Vector2& rhs) noexcept;
 
 

@@ -5,12 +5,13 @@ using namespace math;
 
 int main() {
 
-    Vector3 initial_position(0, 0, 0);
-    Vector3 velocity(0, 0, 1);
+    Vector2 a(1, 1);
 
+    Vector2 b = a * 4;
+
+    double tea = b.x
     
-
-    std::cout << "Dot product: " << to_string(c, 3) << '\n';
+    std::cout << "Dot product: " << b << '\n';
 
     return 0; 
 }
