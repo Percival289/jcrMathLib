@@ -39,6 +39,43 @@ namespace math {
     }
 
 
+    Vector3& Vector3::operator-=(const Vector3& rhs) noexcept
+    {
+        x -= rhs.x;
+        y -= rhs.y;
+        z -= rhs.z;
+
+        return *this;
+    }
+
+
+    Vector3& Vector3::operator-=(double rhs) noexcept
+    {
+        x -= rhs;
+        y -= rhs;
+        z -= rhs;
+
+        return *this;
+    }
+
+
+    Vector3 Vector3::operator-(const Vector3& rhs) const noexcept
+    {
+        Vector3 result = *this;
+        result -= rhs;
+        return result;
+    }
+
+
+    Vector3 Vector3::operator-(double rhs) const noexcept
+    {
+        Vector3 result = *this;
+        result -= rhs;
+        return result;
+    }
+
+
+
     Vector3& Vector3::operator*=(double rhs) noexcept
     {
         x *= rhs;
@@ -53,6 +90,24 @@ namespace math {
     {
         Vector3 result = *this;
         result *= rhs;
+        return result;
+    }
+
+
+    Vector3& Vector3::operator/=(double rhs) noexcept
+    {
+        x /= rhs;
+        y /= rhs;
+        z /= rhs;
+
+        return *this;
+    }
+
+
+    Vector3 Vector3::operator/(double rhs) const noexcept
+    {
+        Vector3 result = *this;
+        result /= rhs;
         return result;
     }
 

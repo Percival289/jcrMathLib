@@ -51,6 +51,8 @@ namespace math {
 
 		constexpr Vector3(double x, double y, double z) noexcept : x(x), y(y), z(z) {}
 
+		// ADDITION
+
 
 		// Vector3 + Vector3 assignment
 		Vector3& operator+=(const Vector3& rhs) noexcept;
@@ -68,11 +70,44 @@ namespace math {
 		Vector3 operator+(double rhs) const noexcept;
 
 
+		// SUBTRACTION
+
+
+		// Vector3 - Vector3 assignment
+		Vector3& operator-=(const Vector3& rhs) noexcept;
+
+
+		// Vector3 - scalar assignment
+		Vector3& operator-=(double rhs) noexcept;
+
+
+		// Vector3 - Vector3
+		Vector3 operator-(const Vector3& rhs) const noexcept;
+
+
+		// Vector3 - scalar
+		Vector3 operator-(double rhs) const noexcept;
+
+
+		// MULTIPLICATION
+
+
 		// Scalar multiplication assignment
 		Vector3& operator*=(double rhs) noexcept;
 
 		// Scalar multiplication
 		Vector3 operator*(double rhs) const noexcept;
+
+
+		// DIVISION
+
+
+		// Scalar division assignment
+		Vector3& operator/=(double rhs) noexcept;
+
+
+		// Scalar division
+		Vector3 operator/(double rhs) const noexcept;
 
 	};
 

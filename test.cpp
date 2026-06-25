@@ -19,10 +19,17 @@ int main()
 
     std::cout << "\nAddition\n";
     std::cout << "a + b = " << (a + b) << '\n';
-    std::cout << "a + 5 = " << (a + 5.0) << '\n';;
+    std::cout << "a + 5 = " << (a + 5.0) << '\n';
+
+    std::cout << "\nSubtraction\n";
+    std::cout << "a - b = " << (a - b) << '\n';
+    std::cout << "a - 2 = " << (a - 2.0) << '\n';
 
     std::cout << "\nMultiplication\n";
     std::cout << "a * 2 = " << (a * 2.0) << '\n';
+
+    std::cout << "\nDivision\n";
+    std::cout << "b / 2 = " << (b / 2.0) << '\n';
 
     std::cout << "\nCompound Operators\n";
 
@@ -32,6 +39,7 @@ int main()
     std::cout << "c += b -> " << c << '\n';
 
     c = a;
+    c -= b;
     std::cout << "c -= b -> " << c << '\n';
 
     c = a;
@@ -39,6 +47,7 @@ int main()
     std::cout << "c *= 2 -> " << c << '\n';
 
     c = a;
+    c /= 2.0;
     std::cout << "c /= 2 -> " << c << '\n';
 
     std::cout << "\nDot Product\n";
@@ -62,8 +71,14 @@ int main()
     std::cout << "p + q = " << (p + q) << '\n';
     std::cout << "p + 5 = " << (p + 5.0) << '\n';
 
+    std::cout << "\nSubtraction\n";
+    std::cout << "p - q = " << (p - q) << '\n';
+
     std::cout << "\nMultiplication\n";
     std::cout << "p * 3 = " << (p * 3.0) << '\n';
+
+    std::cout << "\nDivision\n";
+    std::cout << "q / 2 = " << (q / 2.0) << '\n';
 
     std::cout << "\nCompound Operators\n";
 
@@ -73,6 +88,7 @@ int main()
     std::cout << "r += q -> " << r << '\n';
 
     r = p;
+    r -= q;
     std::cout << "r -= q -> " << r << '\n';
 
     r = p;
@@ -80,6 +96,7 @@ int main()
     std::cout << "r *= 2 -> " << r << '\n';
 
     r = p;
+    r /= 2.0;
     std::cout << "r /= 2 -> " << r << '\n';
 
     std::cout << "\nDot Product\n";

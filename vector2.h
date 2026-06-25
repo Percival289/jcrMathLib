@@ -48,6 +48,8 @@ namespace math {
 
         constexpr Vector2(double x, double y) noexcept : x(x), y(y) {}
 
+        // ADDITION
+
 
         // Vector2 + Vector2 assignment
         Vector2& operator+=(const Vector2& rhs) noexcept;
@@ -64,12 +66,44 @@ namespace math {
         Vector2 operator+(double rhs) const noexcept;
 
 
+        // SUBTRACTION
+
+
+        // Vector2 - Vector2 assignment
+        Vector2& operator-=(const Vector2& rhs) noexcept;
+
+
+        // Vector2 - scalar assignment
+        Vector2& operator-=(double rhs) noexcept;
+
+        // Vector2 - Vector2
+        Vector2 operator-(const Vector2& rhs) const noexcept;
+
+
+        // Vector2 - scalar
+        Vector2 operator-(double rhs) const noexcept;
+
+
+        // MULTIPLICATION
+
+
         // Scalar multiplication assignment
         Vector2& operator*=(double rhs) noexcept;
 
 
         // Scalar multiplication
         Vector2 operator*(double rhs) const noexcept;
+
+
+        // DIVISION
+
+
+        // Scalar divion assignment
+        Vector2& operator/=(double rhs) noexcept;
+
+
+        // Scalar division
+        Vector2 operator/(double rhs) const noexcept;
 
     };
 
