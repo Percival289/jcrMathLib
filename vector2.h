@@ -35,7 +35,7 @@ namespace math {
         *	Vector2 v;  ->  v = { 0, 0 }
         */
 
-        constexpr Vector2() noexcept = default;
+        constexpr Vector2() noexcept = default; 
 
 
         /*
@@ -69,7 +69,7 @@ namespace math {
 
 
         // Scalar multiplication
-        Vector2& operator*(double rhs) const noexcept;
+        Vector2 operator*(double rhs) const noexcept;
 
     };
 

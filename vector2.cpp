@@ -46,7 +46,7 @@ namespace math {
     }
 
 
-    Vector2& Vector2::operator*(double rhs) const noexcept
+    Vector2 Vector2::operator*(double rhs) const noexcept
     {
         Vector2 result = *this;
         result *= rhs;
@@ -57,7 +57,7 @@ namespace math {
     double dot(const Vector2& lhs, const Vector2& rhs) noexcept
     {
         return lhs.x * rhs.x
-            + lhs.y * rhs.y;
+             + lhs.y * rhs.y;
     }
 
 

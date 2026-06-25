@@ -49,7 +49,7 @@ namespace math {
 		*	Vector3 v( 1.0, 2.0, 4.0);
 		*/
 
-		constexpr Vector3(double x, double y, double z) noexcept : x(x), y(y) {}
+		constexpr Vector3(double x, double y, double z) noexcept : x(x), y(y), z(z) {}
 
 
 		// Vector3 + Vector3 assignment
@@ -69,10 +69,10 @@ namespace math {
 
 
 		// Scalar multiplication assignment
-		Vector3 operator*=(double rhs) noexcept;
+		Vector3& operator*=(double rhs) noexcept;
 
 		// Scalar multiplication
-		Vector3& operator*(double rhs) const noexcept;
+		Vector3 operator*(double rhs) const noexcept;
 
 	};
 

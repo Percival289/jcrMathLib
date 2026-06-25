@@ -39,7 +39,7 @@ namespace math {
     }
 
 
-    Vector3 Vector3::operator*=(double rhs) noexcept
+    Vector3& Vector3::operator*=(double rhs) noexcept
     {
         x *= rhs;
         y *= rhs;
@@ -49,7 +49,7 @@ namespace math {
     }
 
 
-    Vector3& Vector3::operator*(double rhs) const noexcept
+    Vector3 Vector3::operator*(double rhs) const noexcept
     {
         Vector3 result = *this;
         result *= rhs;
