@@ -3,8 +3,8 @@
 #include "vector2.h"
 #include "vector3.h"
 
-#include "state2.h"
-#include "state3.h"
+#include "kinematic_state2.h"
+#include "kinematic_state3.h"
 
 #include "integration_euler.h"
 

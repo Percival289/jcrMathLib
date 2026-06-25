@@ -1,6 +1,6 @@
 #pragma once
 
-#include "state2.h"
+#include "kinematic_state2.h"
 #include "vector2.h"
 
 namespace math {
@@ -13,5 +13,5 @@ namespace math {
     /// <param name="dt">Time step for each integration step</param>
     /// <param name="steps">Number of integration steps to perform</param>
     /// <returns>The new kinematic state after integration</returns>
-    KinematicState2 IntegrateEuler(const KinematicState2& state, const Vector2& forces, double dt, int steps) noexcept;
+    KinematicState2 IntegrateEuler(KinematicState2& state, double dt) noexcept;
 }

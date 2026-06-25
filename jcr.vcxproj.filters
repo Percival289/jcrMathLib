@@ -34,6 +34,12 @@
     <Filter Include="Source Files\math\integration">
       <UniqueIdentifier>{0de3b2b6-b1b1-45aa-9b31-1278140fc64b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\math\state">
+      <UniqueIdentifier>{ef5357ec-cd6d-44cd-a55d-64812f5764ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\math\physics">
+      <UniqueIdentifier>{21a15164-7a04-425e-93d4-453bc4cdb708}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math.h">
@@ -48,11 +54,14 @@
     <ClInclude Include="vector3.h">
       <Filter>Header Files\math\vectors</Filter>
     </ClInclude>
-    <ClInclude Include="state2.h">
+    <ClInclude Include="kinematic_state2.h">
       <Filter>Header Files\math\state</Filter>
     </ClInclude>
-    <ClInclude Include="state3.h">
+    <ClInclude Include="kinematic_state3.h">
       <Filter>Header Files\math\state</Filter>
+    </ClInclude>
+    <ClInclude Include="integration_rk4.h">
+      <Filter>Header Files\math\integration</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +76,9 @@
     </ClCompile>
     <ClCompile Include="integration_euler.cpp">
       <Filter>Source Files\math\integration</Filter>
+    </ClCompile>
+    <ClCompile Include="kinematic_state2.cpp">
+      <Filter>Source Files\math\state</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
