@@ -11,7 +11,7 @@ namespace math {
 	*
 	*	Example:
 	*
-	*		Vector2 position{ 10.0, 20.0, 12.0 };
+	*		Vector3 position{ 10.0, 20.0, 12.0 };
 	*
 	*	position.x = 10.0
 	*	position.y = 20.0
@@ -115,29 +115,53 @@ namespace math {
 
 
 		// Vector3 ^ 2
+		[[nodiscard]]
 		Vector3 squared() const noexcept;
 
 
 		// Component-wise square root
-		Vector3 sqrt() const noexcept;
+		[[nodiscard]]
+		Vector3 sqrtComponents() const noexcept;
 
 
 		// Magnitude squared
+		[[nodiscard]]
 		double magSquared() const noexcept;
 
 
 		// Magnitude
+		[[nodiscard]]
 		double mag() const noexcept;
 
 
+		// Normalized vector (unit vector)
+		[[nodiscard]]
+		Vector3 normalized() const noexcept;
+
+
 		// Vector3 Dot Product
+		[[nodiscard]]
 		double dot(const Vector3& rhs) const noexcept;
 
 
 		// Vector3 Cross Product
+		[[nodiscard]]
 		Vector3 cross(const Vector3& rhs) const noexcept;
 
 	};
+
+
+	// Angle 3D (euler angles)
+
+
+	// Vector3 Distance
+	[[nodiscard]]
+	double dist(const Vector3& p1, const Vector3& p2) noexcept;
+
+
+	// Vector2 Distance Squared
+	[[nodiscard]]
+	double distSquared(const Vector3& p1, const Vector3& p2) noexcept;
 
 
 	// Clean vector output for iostream

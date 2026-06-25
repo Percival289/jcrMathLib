@@ -93,6 +93,11 @@ namespace math {
         return result;
     }
 
+    Vector3 operator*(double lhs, const Vector3& rhs) noexcept
+    {
+        return rhs * lhs;
+    }
+
 
     Vector3& Vector3::operator/=(double rhs) noexcept
     {
@@ -123,7 +128,7 @@ namespace math {
     }
 
 
-    Vector3 Vector3::sqrt() const noexcept
+    Vector3 Vector3::sqrtComponents() const noexcept
     {
         return {
             std::sqrt(x),
@@ -147,6 +152,17 @@ namespace math {
     }
 
 
+    Vector3 Vector3::normalized() const noexcept
+    {
+        const double m = mag();
+
+        if (m == 0.0)
+            return {};
+
+        return *this / m;
+    }
+
+
     double Vector3::dot(const Vector3& rhs) const noexcept
     {
         return x * rhs.x
@@ -162,6 +178,22 @@ namespace math {
             z * rhs.x - x * rhs.z,
             x * rhs.y - y * rhs.x
         };
+    }
+
+
+    double distSquared(const Vector3& p1, const Vector3& p2) noexcept
+    {
+        const double dx = p2.x - p1.x;
+        const double dy = p2.y - p1.y;
+        const double dz = p2.z - p1.z;
+
+        return dx * dx + dy * dy + dz * dz;
+    }
+
+
+    double dist(const Vector3& p1, const Vector3& p2) noexcept
+    {
+        return std::sqrt(distSquared(p1, p2));
     }
 
 

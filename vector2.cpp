@@ -1,5 +1,6 @@
 #include "vector2.h"
 #include <ostream>
+#include <cmath>
 
 namespace math {
 
@@ -115,7 +116,7 @@ namespace math {
     }
 
 
-    Vector2 Vector2::sqrt() const noexcept
+    Vector2 Vector2::sqrtComponents() const noexcept
     {
         return {
             std::sqrt(x),
@@ -137,10 +138,36 @@ namespace math {
     }
 
 
+    Vector2 Vector2::normalized() const noexcept
+    {
+        const double m = mag();
+
+        if (m == 0.0)
+            return {};
+
+        return *this / m;
+    }
+
+
     double Vector2::dot(const Vector2& rhs) const noexcept
     {
         return x * rhs.x
             + y * rhs.y;
+    }
+
+
+    double distSquared(const Vector2& p1, const Vector2& p2) noexcept
+    {
+        const double dx = p2.x - p1.x;
+        const double dy = p2.y - p1.y;
+
+        return dx * dx + dy * dy;
+    }
+
+
+    double dist(const Vector2& p1, const Vector2& p2) noexcept
+    {
+        return std::sqrt(distSquared(p1, p2));
     }
 
 

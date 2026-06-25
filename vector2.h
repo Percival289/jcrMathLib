@@ -111,25 +111,48 @@ namespace math {
 
 
         // Vector2 ^ 2
+        [[nodiscard]]
         Vector2 squared() const noexcept;
 
 
         // Component-wise square root
-        Vector2 sqrt() const noexcept;
+        [[nodiscard]]
+        Vector2 sqrtComponents() const noexcept;
 
 
         // Magnitude Squared
+        [[nodiscard]]
         double magSquared() const noexcept;
 
 
         // Magnitude
+        [[nodiscard]]
         double mag() const noexcept;
 
 
+        // Normalized vector (unit vector)
+        [[nodiscard]]
+        Vector2 normalized() const noexcept;
+
+
         // Vector2 Dot Product
+        [[nodiscard]]
         double dot(const Vector2& rhs) const noexcept;
 
     };
+
+
+    // Angle 2D
+
+
+    // Vector2 Distance
+    [[nodiscard]]
+    double dist(const Vector2& p1, const Vector2& p2) noexcept;
+
+
+    // Vector2 Distance Squared
+    [[nodiscard]]
+    double distSquared(const Vector2& p1, const Vector2& p2) noexcept;
 
 
     // Stream output operator, allows for vector to be written directly to streams
