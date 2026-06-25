@@ -31,6 +31,9 @@
     <Filter Include="Source Files\math\vectors">
       <UniqueIdentifier>{d090f1f1-59dc-4856-a9c8-b1ba0af48785}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\math\integration">
+      <UniqueIdentifier>{0de3b2b6-b1b1-45aa-9b31-1278140fc64b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math.h">
@@ -62,8 +65,8 @@
     <ClCompile Include="vector3.cpp">
       <Filter>Source Files\math\vectors</Filter>
     </ClCompile>
-    <ClCompile Include="integrate_euler.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="integration_euler.cpp">
+      <Filter>Source Files\math\integration</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

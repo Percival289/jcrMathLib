@@ -136,7 +136,7 @@
     <ClInclude Include="vector3.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="integrate_euler.cpp" />
+    <ClCompile Include="integration_euler.cpp" />
     <ClCompile Include="vector3.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="vector2.cpp" />
