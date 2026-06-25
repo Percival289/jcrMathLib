@@ -109,11 +109,35 @@ namespace math {
 		// Scalar division
 		Vector3 operator/(double rhs) const noexcept;
 
+
+		// VECTOR OPERATIONS
+
+
+		// Vector3 ^ 2
+		Vector3 squared() const noexcept;
+
+
+		// Component-wise square root
+		Vector3 sqrt() const noexcept;
+
+
+		// Magnitude squared
+		double magSquared() const noexcept;
+
+
+		// Magnitude
+		double mag() const noexcept;
+
+
+		// Vector3 Dot Product
+		double dot(const Vector3& rhs) const noexcept;
+
+
+		// Vector3 Cross Product
+		Vector3 cross(const Vector3& rhs) noexcept;
+
+
 	};
-
-
-	// Vector3 Dot Product
-	double dot(const Vector3& lhs, const Vector3& rhs) noexcept;
 
 
 	// Clean vector output for iostream

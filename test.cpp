@@ -104,6 +104,11 @@ int main()
         << dot(p,q)
         << '\n';
 
+    std::cout << "\nCross Product\n";
+    std::cout << "cross(p,q) = "
+        << cross(p, q)
+        << '\n';
+
     std::cout << "\n\nAll tests completed.\n";
 
     return 0;
