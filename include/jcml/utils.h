@@ -4,7 +4,7 @@
 #include <iomanip>
 #include <string>
 
-namespace math {
+namespace jcml {
 
     /*
     *

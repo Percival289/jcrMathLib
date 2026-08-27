@@ -3,7 +3,7 @@
 #include <ostream>
 #include <cmath>
 
-namespace math {
+namespace jcml {
 
 	/*
 	* Vector3 (x,y,z):
@@ -57,7 +57,7 @@ namespace math {
 
 
 		// Vector3 + Vector3 assignment
-		Vector3& Vector3::operator+=(const Vector3& rhs) noexcept
+		Vector3& operator+=(const Vector3& rhs) noexcept
 		{
 			x += rhs.x;
 			y += rhs.y;
@@ -68,7 +68,7 @@ namespace math {
 
 
 		// Vector3 + scalar assignment
-		Vector3& Vector3::operator+=(double rhs) noexcept
+		Vector3& operator+=(double rhs) noexcept
 		{
 			x += rhs;
 			y += rhs;
@@ -79,7 +79,7 @@ namespace math {
 		
 
 		// Vector3 + Vector3
-        Vector3 Vector3::operator+(const Vector3& rhs) const noexcept
+        Vector3 operator+(const Vector3& rhs) const noexcept
         {
             Vector3 result = *this;
             result += rhs;
@@ -88,7 +88,7 @@ namespace math {
 
 
 		// Vector3 + scalar
-        Vector3 Vector3::operator+(double rhs) const noexcept
+        Vector3 operator+(double rhs) const noexcept
         {
             Vector3 result = *this;
             result += rhs;
@@ -101,7 +101,7 @@ namespace math {
 
 
 		// Vector3 - Vector3 assignment
-        Vector3& Vector3::operator-=(const Vector3& rhs) noexcept
+        Vector3& operator-=(const Vector3& rhs) noexcept
         {
             x -= rhs.x;
             y -= rhs.y;
@@ -112,7 +112,7 @@ namespace math {
 
 
 		// Vector3 - scalar assignment
-        Vector3& Vector3::operator-=(double rhs) noexcept
+        Vector3& operator-=(double rhs) noexcept
         {
             x -= rhs;
             y -= rhs;
@@ -123,7 +123,7 @@ namespace math {
 
 
 		// Vector3 - Vector3
-        Vector3 Vector3::operator-(const Vector3& rhs) const noexcept
+        Vector3 operator-(const Vector3& rhs) const noexcept
         {
             Vector3 result = *this;
             result -= rhs;
@@ -132,7 +132,7 @@ namespace math {
 
 
 		// Vector3 - scalar
-        Vector3 Vector3::operator-(double rhs) const noexcept
+        Vector3 operator-(double rhs) const noexcept
         {
             Vector3 result = *this;
             result -= rhs;
@@ -144,7 +144,7 @@ namespace math {
 
 
 		// Scalar multiplication assignment
-        Vector3& Vector3::operator*=(double rhs) noexcept
+        Vector3& operator*=(double rhs) noexcept
         {
             x *= rhs;
             y *= rhs;
@@ -166,7 +166,7 @@ namespace math {
 
 
 		// Scalar division assignment
-        Vector3& Vector3::operator/=(double rhs) noexcept
+        Vector3& operator/=(double rhs) noexcept
         {
             x /= rhs;
             y /= rhs;
@@ -177,7 +177,7 @@ namespace math {
 
 
 		// Scalar division
-        Vector3 Vector3::operator/(double rhs) const noexcept
+        Vector3 operator/(double rhs) const noexcept
         {
             Vector3 result = *this;
             result /= rhs;
@@ -190,7 +190,7 @@ namespace math {
 
 		// Vector3 ^ 2
 		[[nodiscard]]
-        Vector3 Vector3::squared() const noexcept
+        Vector3 squared() const noexcept
         {
             return {
                 x * x,
@@ -203,7 +203,7 @@ namespace math {
 
 		// Component-wise square root
 		[[nodiscard]]
-        Vector3 Vector3::sqrtComponents() const noexcept
+        Vector3 sqrtComponents() const noexcept
         {
             return {
                 std::sqrt(x),
@@ -215,7 +215,7 @@ namespace math {
 
 		// Magnitude squared
 		[[nodiscard]]
-        double Vector3::magSquared() const noexcept
+        double magSquared() const noexcept
         {
             return x * x
                 + y * y
@@ -225,7 +225,7 @@ namespace math {
 
 		// Magnitude
 		[[nodiscard]]
-        double Vector3::mag() const noexcept
+        double mag() const noexcept
         {
             return std::sqrt(magSquared());
         }
@@ -233,7 +233,7 @@ namespace math {
 
 		// Normalized vector (unit vector)
 		[[nodiscard]]
-        Vector3 Vector3::normalized() const noexcept
+        Vector3 normalized() const noexcept
         {
             const double m = mag();
 
@@ -246,7 +246,7 @@ namespace math {
 
 		// Vector3 Dot Product
 		[[nodiscard]]
-        double Vector3::dot(const Vector3& rhs) const noexcept
+        double dot(const Vector3& rhs) const noexcept
         {
             return x * rhs.x
                 + y * rhs.y
@@ -256,7 +256,7 @@ namespace math {
 
 		// Vector3 Cross Product
 		[[nodiscard]]
-        Vector3 Vector3::cross(const Vector3& rhs) const noexcept
+        Vector3 cross(const Vector3& rhs) const noexcept
         {
             return {
                 y * rhs.z - z * rhs.y,
@@ -271,15 +271,6 @@ namespace math {
 
 	// Angle 3D (euler angles)
 
-
-	// Vector3 Distance
-	[[nodiscard]]
-	double dist(const Vector3& p1, const Vector3& p2) noexcept
-	{
-		return std::sqrt(distSquared(p1, p2));
-	}
-
-
 	// Vector2 Distance Squared
 	[[nodiscard]]
 	double distSquared(const Vector3& p1, const Vector3& p2) noexcept
@@ -289,6 +280,13 @@ namespace math {
 		const double dz = p2.z - p1.z;
 
 		return dx * dx + dy * dy + dz * dz;
+	}
+
+	// Vector3 Distance
+	[[nodiscard]]
+	double dist(const Vector3& p1, const Vector3& p2) noexcept
+	{
+		return std::sqrt(distSquared(p1, p2));
 	}
 
 

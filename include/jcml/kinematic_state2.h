@@ -2,7 +2,7 @@
 
 #include "vector2.h"
 
-namespace math {
+namespace jcml {
 
     struct KinematicState2
     {

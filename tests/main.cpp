@@ -1,11 +1,11 @@
 #include <iostream>
-#include <jcml/vector2.h>
-#include <jcml/vector3.h>
+#include <jcml/jcml.h>
 
 int main()
 {
-
-    std::cout << "Test Run";
+    std::system("cls");
+    std::cout << jcml::pi;
+    std::cout << "\nTest Run\n";
 
     return 0;
 }

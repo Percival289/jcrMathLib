@@ -1,6 +1,6 @@
 #include "integration_euler.h"
 
-namespace math {
+namespace jcml {
 
     KinematicState2 IntegrateEuler(KinematicState2& state, double dt) noexcept
     {

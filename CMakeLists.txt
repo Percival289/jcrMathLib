@@ -5,17 +5,14 @@ project(jcrMathLib
     LANGUAGES CXX
 )
 
-add_library(jcrMathLib
-    src/vector2.cpp
-    src/vector3.cpp
-)
+add_library(jcrMathLib INTERFACE)
 
 target_include_directories(jcrMathLib
-    PUBLIC
+    INTERFACE
         ${PROJECT_SOURCE_DIR}/include
 )
 
-target_compile_features(jcrMathLib PUBLIC cxx_std_17)
+target_compile_features(jcrMathLib INTERFACE cxx_std_17)
 
 # Tests
 add_executable(jcrMathTest

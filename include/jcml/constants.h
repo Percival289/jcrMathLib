@@ -1,6 +1,6 @@
 #pragma once
 
-namespace math
+namespace jcml
 {
     constexpr double pi = 3.14159265358979323846;
     constexpr double two_pi = 2.0 * pi;

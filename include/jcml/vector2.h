@@ -3,7 +3,7 @@
 #include <ostream>
 #include <cmath> // TODO: Implement sqrt
 
-namespace math {
+namespace jcml {
 
     /*
     * Vector2 (x,y):
@@ -243,15 +243,6 @@ namespace math {
 
     // Angle 2D
 
-
-    // Vector2 Distance
-    [[nodiscard]]
-    double dist(const Vector2& p1, const Vector2& p2) noexcept
-    {
-        return std::sqrt(distSquared(p1, p2));
-    }
-
-
     // Vector2 Distance Squared
     [[nodiscard]]
     double distSquared(const Vector2& p1, const Vector2& p2) noexcept
@@ -260,6 +251,13 @@ namespace math {
         const double dy = p2.y - p1.y;
 
         return dx * dx + dy * dy;
+    }
+
+    // Vector2 Distance
+    [[nodiscard]]
+    double dist(const Vector2& p1, const Vector2& p2) noexcept
+    {
+        return std::sqrt(distSquared(p1, p2));
     }
 
 
