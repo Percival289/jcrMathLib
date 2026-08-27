@@ -71,6 +71,7 @@ namespace jcml {
             return *this;
         }
 
+
         // Vector2 + Vector2
         Vector2 operator+(const Vector2& rhs) const noexcept
         {
@@ -81,7 +82,7 @@ namespace jcml {
 
 
         // Vector2 + scalar
-        Vector2 Vector2::operator+(double rhs) const noexcept
+        Vector2 operator+(double rhs) const noexcept
         {
             Vector2 result = *this;
             result += rhs;
@@ -93,7 +94,7 @@ namespace jcml {
 
 
         // Vector2 - Vector2 assignment
-        Vector2& Vector2::operator-=(const Vector2& rhs) noexcept
+        Vector2& operator-=(const Vector2& rhs) noexcept
         {
             x -= rhs.x;
             y -= rhs.y;
@@ -103,13 +104,14 @@ namespace jcml {
 
 
         // Vector2 - scalar assignment
-        Vector2& Vector2::operator-=(double rhs) noexcept
+        Vector2& operator-=(double rhs) noexcept
         {
             x -= rhs;
             y -= rhs;
 
             return *this;
         }
+
 
         // Vector2 - Vector2
         Vector2 operator-(const Vector2& rhs) const noexcept
@@ -129,6 +131,16 @@ namespace jcml {
         }
 
 
+        // Negation
+        Vector2 operator-() const noexcept
+        {
+            return {
+                -x,
+                -y
+            };
+        }
+
+
         // MULTIPLICATION
 
 
@@ -141,6 +153,7 @@ namespace jcml {
             return *this;
         }
 
+
         // Scalar multiplication
         Vector2 operator*(double rhs) const noexcept
         {
@@ -150,11 +163,10 @@ namespace jcml {
         }
 
 
-
         // DIVISION
 
 
-        // Scalar divion assignment
+        // Scalar division assignment
         Vector2& operator/=(double rhs) noexcept
         {
             x /= rhs;
@@ -162,6 +174,7 @@ namespace jcml {
 
             return *this;
         }
+
 
         // Scalar division
         Vector2 operator/(double rhs) const noexcept
@@ -172,11 +185,10 @@ namespace jcml {
         }
 
 
-
         // VECTOR OPERATIONS
 
 
-        // Vector2 ^ 2
+        // Component-wise square
         [[nodiscard]]
         Vector2 squared() const noexcept
         {
@@ -216,7 +228,6 @@ namespace jcml {
         }
 
 
-
         // Normalized vector (unit vector)
         [[nodiscard]]
         Vector2 normalized() const noexcept
@@ -229,7 +240,7 @@ namespace jcml {
             return *this / m;
         }
 
-
+        
         // Vector2 Dot Product
         [[nodiscard]]
         double dot(const Vector2& rhs) const noexcept
@@ -238,14 +249,16 @@ namespace jcml {
                 + y * rhs.y;
         }
 
+
     };
 
 
-    // Angle 2D
+    // TODO: Angle 2D between 2 vectors
+
 
     // Vector2 Distance Squared
     [[nodiscard]]
-    double distSquared(const Vector2& p1, const Vector2& p2) noexcept
+    inline double distSquared(const Vector2& p1, const Vector2& p2) noexcept
     {
         const double dx = p2.x - p1.x;
         const double dy = p2.y - p1.y;
@@ -253,16 +266,17 @@ namespace jcml {
         return dx * dx + dy * dy;
     }
 
+
     // Vector2 Distance
     [[nodiscard]]
-    double dist(const Vector2& p1, const Vector2& p2) noexcept
+    inline double dist(const Vector2& p1, const Vector2& p2) noexcept
     {
         return std::sqrt(distSquared(p1, p2));
     }
 
 
     // Stream output operator, allows for vector to be written directly to streams
-    std::ostream& operator<<(std::ostream& os, const Vector2& vec)
+    inline std::ostream& operator<<(std::ostream& os, const Vector2& vec)
     {
         os << "[ "
             << vec.x

@@ -7,9 +7,13 @@ namespace jcml {
     struct KinematicState2
     {
 
-        // 2D Positional
+        // (x, y, z) Position
         Vector2 position;
+
+        // (x, y, z) Velocity
         Vector2 velocity;
+
+        // (x, y, z) Acceleration
         Vector2 acceleration;
 
     };

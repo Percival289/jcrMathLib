@@ -14,12 +14,33 @@ target_include_directories(jcrMathLib
 
 target_compile_features(jcrMathLib INTERFACE cxx_std_17)
 
+# ========================================
 # Tests
-add_executable(jcrMathTest
-    tests/main.cpp
+# ========================================
+
+include(FetchContent)
+
+FetchContent_Declare(
+    googletest
+    URL https://github.com/google/googletest/archive/refs/tags/v1.17.0.zip
 )
 
-target_link_libraries(jcrMathTest
+FetchContent_MakeAvailable(googletest)
+
+
+add_executable(jcrMathTests
+    tests/vector2_test.cpp
+    tests/vector3_test.cpp
+    tests/constants_test.cpp
+)
+
+target_link_libraries(jcrMathTests
     PRIVATE
         jcrMathLib
+        GTest::gtest_main
 )
+
+
+include(GoogleTest)
+
+gtest_discover_tests(jcrMathTests)

@@ -1,5 +1,5 @@
 #pragma once
 
 #include "constants.h"
-#include "vector2.h"
-#include "vector3.h"
+#include "vectors/vector2.h"
+#include "vectors/vector3.h"

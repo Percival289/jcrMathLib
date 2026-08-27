@@ -96,7 +96,6 @@ namespace jcml {
         }
 
 
-
 		// SUBTRACTION
 
 
@@ -140,6 +139,17 @@ namespace jcml {
         }
 
 
+        // Negation
+        Vector3 operator-() const noexcept
+        {
+            return {
+                -x,
+                -y,
+                -z
+            };
+        }
+
+
 		// MULTIPLICATION
 
 
@@ -152,6 +162,7 @@ namespace jcml {
 
             return *this;
         }
+
 
 		// Scalar multiplication
 		Vector3 operator*(double rhs) const noexcept
@@ -271,9 +282,9 @@ namespace jcml {
 
 	// Angle 3D (euler angles)
 
-	// Vector2 Distance Squared
+	// Vector3 Distance Squared
 	[[nodiscard]]
-	double distSquared(const Vector3& p1, const Vector3& p2) noexcept
+	inline double distSquared(const Vector3& p1, const Vector3& p2) noexcept
 	{
 		const double dx = p2.x - p1.x;
 		const double dy = p2.y - p1.y;
@@ -284,14 +295,14 @@ namespace jcml {
 
 	// Vector3 Distance
 	[[nodiscard]]
-	double dist(const Vector3& p1, const Vector3& p2) noexcept
+	inline double dist(const Vector3& p1, const Vector3& p2) noexcept
 	{
 		return std::sqrt(distSquared(p1, p2));
 	}
 
 
 	// Clean vector output for iostream
-	std::ostream& operator<<(std::ostream& os, const Vector3& vec)
+	inline std::ostream& operator<<(std::ostream& os, const Vector3& vec)
     {
         os << "[ "
             << vec.x
