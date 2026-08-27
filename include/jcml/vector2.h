@@ -2,6 +2,7 @@
 
 // Light version of iostream
 #include <iosfwd>
+#include <cmath> // TODO: Implement sqrt
 
 namespace math {
 
@@ -53,58 +54,124 @@ namespace math {
 
 
         // Vector2 + Vector2 assignment
-        Vector2& operator+=(const Vector2& rhs) noexcept;
+        Vector2& operator+=(const Vector2& rhs) noexcept
+        {
+            x += rhs.x;
+            y += rhs.y;
+
+            return *this;
+        }
 
 
         // Vector2 + scalar assignment
-        Vector2& operator+=(double rhs) noexcept;
+        Vector2& operator+=(double rhs) noexcept
+        {
+            x += rhs;
+            y += rhs;
+
+            return *this;
+        }
 
         // Vector2 + Vector2
-        Vector2 operator+(const Vector2& rhs) const noexcept;
+        Vector2 operator+(const Vector2& rhs) const noexcept
+        {
+            Vector2 result = *this;
+            result += rhs;
+            return result;
+        }
 
 
         // Vector2 + scalar
-        Vector2 operator+(double rhs) const noexcept;
+        Vector2 Vector2::operator+(double rhs) const noexcept
+        {
+            Vector2 result = *this;
+            result += rhs;
+            return result;
+        }
 
 
         // SUBTRACTION
 
 
         // Vector2 - Vector2 assignment
-        Vector2& operator-=(const Vector2& rhs) noexcept;
+        Vector2& Vector2::operator-=(const Vector2& rhs) noexcept
+        {
+            x -= rhs.x;
+            y -= rhs.y;
+
+            return *this;
+        }
 
 
         // Vector2 - scalar assignment
-        Vector2& operator-=(double rhs) noexcept;
+        Vector2& Vector2::operator-=(double rhs) noexcept
+        {
+            x -= rhs;
+            y -= rhs;
+
+            return *this;
+        }
 
         // Vector2 - Vector2
-        Vector2 operator-(const Vector2& rhs) const noexcept;
+        Vector2 operator-(const Vector2& rhs) const noexcept
+        {
+            Vector2 result = *this;
+            result -= rhs;
+            return result;
+        }
 
 
         // Vector2 - scalar
-        Vector2 operator-(double rhs) const noexcept;
+        Vector2 operator-(double rhs) const noexcept
+        {
+            Vector2 result = *this;
+            result -= rhs;
+            return result;
+        }
 
 
         // MULTIPLICATION
 
 
         // Scalar multiplication assignment
-        Vector2& operator*=(double rhs) noexcept;
+        Vector2& operator*=(double rhs) noexcept 
+        {
+            x *= rhs;
+            y *= rhs;
 
+            return *this;
+        }
 
         // Scalar multiplication
-        Vector2 operator*(double rhs) const noexcept;
+        Vector2 operator*(double rhs) const noexcept
+        {
+            Vector2 result = *this;
+            result *= rhs;
+            return result;
+        }
+
 
 
         // DIVISION
 
 
         // Scalar divion assignment
-        Vector2& operator/=(double rhs) noexcept;
+        Vector2& operator/=(double rhs) noexcept
+        {
+            x /= rhs;
+            y /= rhs;
 
+            return *this;
+        }
 
         // Scalar division
-        Vector2 operator/(double rhs) const noexcept;
+        Vector2 operator/(double rhs) const noexcept
+        {
+            Vector2 result = *this;
+            result /= rhs;
+            return result;
+        }
+
 
 
         // VECTOR OPERATIONS
@@ -112,32 +179,65 @@ namespace math {
 
         // Vector2 ^ 2
         [[nodiscard]]
-        Vector2 squared() const noexcept;
+        Vector2 squared() const noexcept
+        {
+            return {
+                x * x,
+                y * y
+            };
+
+        }
 
 
         // Component-wise square root
         [[nodiscard]]
-        Vector2 sqrtComponents() const noexcept;
+        Vector2 sqrtComponents() const noexcept
+        {
+            return {
+                std::sqrt(x),
+                std::sqrt(y)
+            };
+        }
 
 
         // Magnitude Squared
         [[nodiscard]]
-        double magSquared() const noexcept;
+        double magSquared() const noexcept
+        {
+            return x * x
+                + y * y;
+        }
 
 
         // Magnitude
         [[nodiscard]]
-        double mag() const noexcept;
+        double mag() const noexcept
+        {
+            return std::sqrt(magSquared());
+        }
+
 
 
         // Normalized vector (unit vector)
         [[nodiscard]]
-        Vector2 normalized() const noexcept;
+        Vector2 normalized() const noexcept
+        {
+            const double m = mag();
+
+            if (m == 0.0)
+                return {};
+
+            return *this / m;
+        }
 
 
         // Vector2 Dot Product
         [[nodiscard]]
-        double dot(const Vector2& rhs) const noexcept;
+        double dot(const Vector2& rhs) const noexcept
+        {
+            return x * rhs.x
+                + y * rhs.y;
+        }
 
     };
 
@@ -147,12 +247,21 @@ namespace math {
 
     // Vector2 Distance
     [[nodiscard]]
-    double dist(const Vector2& p1, const Vector2& p2) noexcept;
+    double dist(const Vector2& p1, const Vector2& p2) noexcept
+    {
+        return std::sqrt(distSquared(p1, p2));
+    }
 
 
     // Vector2 Distance Squared
     [[nodiscard]]
-    double distSquared(const Vector2& p1, const Vector2& p2) noexcept;
+    double distSquared(const Vector2& p1, const Vector2& p2) noexcept
+    {
+        const double dx = p2.x - p1.x;
+        const double dy = p2.y - p1.y;
+
+        return dx * dx + dy * dy;
+    }
 
 
     // Stream output operator, allows for vector to be written directly to streams

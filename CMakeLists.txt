@@ -8,7 +8,6 @@ project(jcrMathLib
 add_library(jcrMathLib
     src/vector2.cpp
     src/vector3.cpp
-    src/math.cpp
 )
 
 target_include_directories(jcrMathLib
@@ -17,3 +16,13 @@ target_include_directories(jcrMathLib
 )
 
 target_compile_features(jcrMathLib PUBLIC cxx_std_17)
+
+# Tests
+add_executable(jcrMathTest
+    tests/main.cpp
+)
+
+target_link_libraries(jcrMathTest
+    PRIVATE
+        jcrMathLib
+)

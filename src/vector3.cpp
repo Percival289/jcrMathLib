@@ -1,4 +1,4 @@
-#include "vector3.h"
+#include "jcml/vector3.h"
 #include <ostream>
 #include <cmath>
 
