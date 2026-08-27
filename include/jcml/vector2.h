@@ -1,7 +1,6 @@
 #pragma once
 
-// Light version of iostream
-#include <iosfwd>
+#include <ostream>
 #include <cmath> // TODO: Implement sqrt
 
 namespace math {
@@ -265,5 +264,14 @@ namespace math {
 
 
     // Stream output operator, allows for vector to be written directly to streams
-    std::ostream& operator<<(std::ostream&, const Vector2&);
+    std::ostream& operator<<(std::ostream& os, const Vector2& vec)
+    {
+        os << "[ "
+            << vec.x
+            << ", "
+            << vec.y
+            << " ]";
+
+        return os;
+    }
 }
