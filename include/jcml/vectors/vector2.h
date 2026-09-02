@@ -148,6 +148,7 @@ namespace jcml {
 
         // MULTIPLICATION
 
+        // FIXME: * operator does not work the other way around, need to add functionality for:     2.0 * Vector2
 
         // Scalar multiplication assignment
         Vector2& operator*=(double rhs) noexcept 
@@ -232,18 +233,24 @@ namespace jcml {
             return std::sqrt(magSquared());
         }
 
-
+        // Magnitude Readable - Leaves the result as sqrt(x) if not a whole number
         [[nodiscard]]
         std::string magReadable() const
         {
             double m = mag();
             std::ostringstream oss;
             if (floor(m) == m) {
+
                 // Magnitude is a whole number, show that
                 oss << m;
+
             } else {
+
                 // Magnitude is an irrational number, show a readable version instead
                 oss << "sqrt(" << magSquared() << ")";
+
+                // TODO: Simplify expressions (eg. Convert sqrt(20) --> 2*sqrt(5))
+
             }
 
             return oss.str();
@@ -286,6 +293,8 @@ namespace jcml {
                 << ", "
                 << this->y << "/" << "sqrt(" << magSquared() << ")"
                 << " ]";
+
+                // TODO: Simplify expressions (eg. Convert sqrt(20) --> 2*sqrt(5))
 
             }
 

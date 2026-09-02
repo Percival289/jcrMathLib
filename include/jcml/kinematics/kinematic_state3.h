@@ -11,7 +11,6 @@ namespace jcml {
 	* Holds the position, velocity, and acceleration of an object in 3D space.
     * 
     */
-
     struct KinematicState3
     {
 

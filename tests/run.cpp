@@ -1,5 +1,4 @@
-#include <jcml/vectors/vector2.h>
-#include <jcml/vectors/vector3.h>
+#include <jcml/jcml.h>
 
 #include <iostream>
 

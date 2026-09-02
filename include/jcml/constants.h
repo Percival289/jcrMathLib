@@ -1,5 +1,12 @@
 #pragma once
 
+/*
+    Contains a list of relevant constants for physics/engineering/math etc.
+    Values are not rounded
+
+    // TODO: Find a way to organize these
+*/
+
 namespace jcml::constants
 {
     inline constexpr double pi              = 3.14159265358979323846;

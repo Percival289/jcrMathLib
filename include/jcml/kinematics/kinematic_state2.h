@@ -4,6 +4,13 @@
 
 namespace jcml {
 
+    /*
+    * 
+    * 2D Kinematic State :
+    * 
+	* Holds the position, velocity, and acceleration of an object in 2D space.
+    * 
+    */
     struct KinematicState2
     {
 

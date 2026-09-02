@@ -6,7 +6,6 @@
 
 #include <cmath>
 
-
 // TODO: Convert to template
 
 namespace jcml {
