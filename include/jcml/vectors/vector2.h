@@ -1,6 +1,9 @@
 #pragma once
 
 #include <ostream>
+#include <sstream>
+#include <string>
+
 #include <cmath> // TODO: Implement sqrt
 
 namespace jcml {
@@ -228,6 +231,23 @@ namespace jcml {
         }
 
 
+        [[nodiscard]]
+        std::string magReadable() const
+        {
+            double m = mag();
+            std::ostringstream oss;
+            if (floor(m) == m) {
+                // Magnitude is a whole number, show that
+                oss << m;
+            } else {
+                // Magnitude is an irrational number, show a readable version instead
+                oss << "sqrt(" << magSquared() << ")";
+            }
+
+            return oss.str();
+        }
+
+
         // Normalized vector (unit vector)
         [[nodiscard]]
         Vector2 normalized() const noexcept
@@ -238,6 +258,36 @@ namespace jcml {
                 return {};
 
             return *this / m;
+        }
+
+
+        // Normalized vector READABLE (unit vector)
+        [[nodiscard]]
+        std::string normalizedReadable() const noexcept
+        {
+            double m = mag();
+            std::ostringstream oss;
+            if (floor(m) == m) {
+                // Magnitude is a whole number, show that
+
+                oss << "[ " 
+                    << this->x << "/" << m
+                    << ", "
+                    << this->y << "/" << m
+                    << " ]";
+
+            } else {
+                // Magnitude is an irrational number, show a readable version instead
+
+                oss << "[ "
+                << this->x << "/" << "sqrt(" << magSquared() << ")"
+                << ", "
+                << this->y << "/" << "sqrt(" << magSquared() << ")"
+                << " ]";
+
+            }
+
+            return oss.str();
         }
 
         

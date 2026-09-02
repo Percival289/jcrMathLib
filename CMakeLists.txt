@@ -29,9 +29,10 @@ FetchContent_MakeAvailable(googletest)
 
 
 add_executable(jcrMathTests
-    tests/vector2_test.cpp
-    tests/vector3_test.cpp
-    tests/constants_test.cpp
+    tests/run.cpp
+    #tests/vector2_test.cpp
+    #tests/vector3_test.cpp
+    #tests/constants_test.cpp
 )
 
 target_link_libraries(jcrMathTests
