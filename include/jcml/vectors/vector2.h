@@ -4,7 +4,9 @@
 #include <sstream>
 #include <string>
 
-#include <cmath> // TODO: Implement sqrt
+#include <cmath>
+
+// TODO: Convert to template
 
 namespace jcml {
 

@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// TODO: Make vectors into templates so they can use a fraction type as values
+// TODO: Add functionality to use fraction type inside of vectors
 
 class Fraction {
     private:
