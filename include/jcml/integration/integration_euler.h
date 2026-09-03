@@ -8,12 +8,13 @@ namespace jcml {
     // TODO: Add a # of steps so dt can be constant and you can look into the future (eg. find the state x steps ahead)
 
     // Simple Euler integration
-    KinematicState2 IntegrateEuler(KinematicState2& state, double dt) noexcept 
+    KinematicState2 IntegrateEuler(KinematicState2& state, double dt, int steps = 1) noexcept 
     {
-
-        state.velocity += state.acceleration * dt;
-        state.position += state.velocity;
-
+        for (int i = 0; i < steps; i++) {
+            state.velocity += state.acceleration * dt;
+            state.position += state.velocity;
+        }
+        
         return state;
     }
 
