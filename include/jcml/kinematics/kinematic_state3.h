@@ -20,6 +20,9 @@ namespace jcml {
 		// (x, y, z) Velocity
         Vector3 velocity;
 
+		// (x, y, z) Rotation
+		Vector3 rotation;
+
 		// (x, y, z) Acceleration
         Vector3 acceleration;
 
