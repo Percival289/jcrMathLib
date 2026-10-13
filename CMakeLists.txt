@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 project(jcrMathLib
-    VERSION 0.0.5
+    VERSION 0.0.6
     LANGUAGES CXX
 )
 
@@ -9,39 +9,46 @@ add_library(jcrMathLib INTERFACE)
 
 target_include_directories(jcrMathLib
     INTERFACE
-        ${PROJECT_SOURCE_DIR}/include
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>
 )
 
-target_compile_features(jcrMathLib INTERFACE cxx_std_17)
+target_compile_features(jcrMathLib INTERFACE cxx_std_20)
+
+add_library(jcrMathLib::jcrMathLib ALIAS jcrMathLib)
 
 # ========================================
 # Tests
 # ========================================
 
-include(FetchContent)
+if(PROJECT_IS_TOP_LEVEL)
 
-FetchContent_Declare(
-    googletest
-    URL https://github.com/google/googletest/archive/refs/tags/v1.17.0.zip
-)
+    include(FetchContent)
 
-FetchContent_MakeAvailable(googletest)
+    FetchContent_Declare(
+        googletest
+        URL https://github.com/google/googletest/archive/refs/tags/v1.17.0.zip
+    )
 
-
-add_executable(jcrMathTests
-    tests/run.cpp
-    #tests/vector2_test.cpp
-    #tests/vector3_test.cpp
-    #tests/constants_test.cpp
-)
-
-target_link_libraries(jcrMathTests
-    PRIVATE
-        jcrMathLib
-        GTest::gtest_main
-)
+    FetchContent_MakeAvailable(googletest)
 
 
-include(GoogleTest)
+    add_executable(jcrMathTests
+        tests/run.cpp
+        #tests/vector2_test.cpp
+        #tests/vector3_test.cpp
+        #tests/constants_test.cpp
+    )
 
-gtest_discover_tests(jcrMathTests)
+    target_link_libraries(jcrMathTests
+        PRIVATE
+            jcrMathLib
+            GTest::gtest_main
+    )
+
+
+    include(GoogleTest)
+
+    gtest_discover_tests(jcrMathTests)
+
+endif()
