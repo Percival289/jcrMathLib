@@ -11,7 +11,7 @@
 
 */
 
-#include "constants.h"
-#include "vectors/vector2.h"
-#include "vectors/vector3.h"
-#include "kinematics/kinematic_state3.h"
+#include <jcml/constants.h>
+#include <jcml/vectors/vector2.h>
+#include <jcml/vectors/vector3.h>
+#include <jcml/kinematics/kinematic_state3.h>
