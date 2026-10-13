@@ -14,3 +14,4 @@
 #include "constants.h"
 #include "vectors/vector2.h"
 #include "vectors/vector3.h"
+#include "kinematics/kinematic_state3.h"
